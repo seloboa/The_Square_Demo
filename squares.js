@@ -6,7 +6,7 @@ generateSquare.addEventListener('click', function() {
     if (document.getElementById('squaresList').children.length === 0 && input.value !== '') {
       const colors = input.value.split(', ');
       generateDom(colors);
-      input.value ='';
+      input.style.display='none';
       generateSquare.innerHTML = "Restart The Demo";
     }else{
       location.reload();
@@ -23,7 +23,7 @@ function generateDom(colorsArr) {
     squaresDiv.appendChild(square);
   });
 
-  const commandsList = document.getElementById('commands');
+  const buttonsList = document.getElementById('buttonsList');
 
   ['Show', 'Hide'].forEach(command => {
     const button = document.createElement('button');
@@ -40,7 +40,7 @@ function generateDom(colorsArr) {
         );
       }
     });
-    commandsList.appendChild(button);
+    buttonsList.appendChild(button);
   });
 
   colorsArr.forEach(color => {
@@ -54,6 +54,6 @@ function generateDom(colorsArr) {
       }
     });
     button.innerHTML = `Toggle ${color}`;
-    commandsList.appendChild(button);
+    buttonsList.appendChild(button);
   });
 }
