@@ -10,6 +10,8 @@ function generateDom(colorsArr) {
   colorsArr.forEach(color => {
     const square = document.createElement('div');
     square.id = color;
+    square.style.display = 'inline-block';
+    square.style.margin = '100px';
     square.style.backgroundColor = color;
     square.style.height = '100px'
     square.style.width = '100px';
@@ -22,7 +24,11 @@ function generateDom(colorsArr) {
     button.id = `${color}Button`
     button.addEventListener('click', function(){
       const square = document.getElementById(color);
-      square.style.display = 'none';
+      if(!square.style.display || square.style.display === 'inline-block'){
+        square.style.display = 'none';
+      }else{
+        square.style.display ='inline-block';
+      }
     })
     button.innerHTML = `Toggle ${color}`
     commandsList.appendChild(button);
