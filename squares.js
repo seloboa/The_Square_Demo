@@ -9,9 +9,10 @@ function generateDom(colorsArr) {
   const squaresDiv = document.getElementById("squaresList");
   colorsArr.forEach(color => {
     const square = document.createElement('div');
+    square.className = 'squares';
     square.id = color;
     square.style.display = 'inline-block';
-    square.style.margin = '100px';
+    square.style.margin = '50px';
     square.style.backgroundColor = color;
     square.style.height = '100px'
     square.style.width = '100px';
@@ -19,9 +20,25 @@ function generateDom(colorsArr) {
   });
 
   const commandsList = document.getElementById('commands');
+  for(let i =0; i <=1; ++i){
+    const button = document.createElement('button');
+    if(i === 0){
+      button.innerHTML = 'Show All Squares';
+      button.addEventListener('click', function(){
+        const curSquares = document.getElementsByClassName('squares');
+        Array.from(curSquares).forEach(square => square.style.display = 'inline-block');
+      })
+    }else{
+      button.innerHTML= 'Hide All Squares';
+      button.addEventListener('click', function(){
+        const curSquares = document.getElementsByClassName('squares');
+        Array.from(curSquares).forEach(square => square.style.display = 'none');
+      })
+    }
+    commandsList.appendChild(button);
+  }
   colorsArr.forEach(color =>{
     const button = document.createElement('button');
-    button.id = `${color}Button`
     button.addEventListener('click', function(){
       const square = document.getElementById(color);
       if(!square.style.display || square.style.display === 'inline-block'){
