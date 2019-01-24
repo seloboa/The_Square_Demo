@@ -1,9 +1,12 @@
 const generateSquare = document.getElementById('GenerateSquares');
+const squaresList = document.getElementById('squaresList');
+const buttonsList = document.getElementById('buttonsList');
 
 generateSquare.addEventListener('click', function() {
   const input = document.getElementById('colorInput');
   if (
-    document.getElementById('squaresList').children.length === 0 &&
+    !squaresList.children.length &&
+    !buttonsList.children.length &&
     input.value !== ''
   ) {
     const colors = input.value.split(', ');
@@ -16,9 +19,6 @@ generateSquare.addEventListener('click', function() {
 });
 
 function generateDom(colorsArr) {
-  const squaresDiv = document.getElementById('squaresList');
-  const buttonsList = document.getElementById('buttonsList');
-
   colorsArr.forEach(color => {
     console.log('here');
     const square = document.createElement('div');
@@ -26,7 +26,7 @@ function generateDom(colorsArr) {
     square.id = color;
     square.style.backgroundColor = color;
     if (square.style.backgroundColor) {
-      squaresDiv.appendChild(square);
+      squaresList.appendChild(square);
       const button = document.createElement('button');
       button.addEventListener('click', function() {
         const square = document.getElementById(color);
