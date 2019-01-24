@@ -20,7 +20,6 @@ generateSquare.addEventListener('click', function() {
 
 function generateDom(colorsArr) {
   colorsArr.forEach(color => {
-    console.log('here');
     const square = document.createElement('div');
     square.className = 'squares';
     square.id = color;
