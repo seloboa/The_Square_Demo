@@ -1,9 +1,15 @@
-document
+const generateSquare = document
   .getElementById('GenerateSquares')
-  .addEventListener('click', function() {
-    if (document.getElementById('squaresList').children.length === 0) {
-      const colors = ['blue', 'green', 'yellow', 'orange'];
+
+generateSquare.addEventListener('click', function() {
+    const input = document.getElementById('colorInput');
+    if (document.getElementById('squaresList').children.length === 0 && input.value !== '') {
+      const colors = input.value.split(', ');
       generateDom(colors);
+      input.value ='';
+      generateSquare.innerHTML = "Restart The Demo";
+    }else{
+      location.reload();
     }
   });
 

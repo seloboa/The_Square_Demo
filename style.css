@@ -4,6 +4,17 @@ html{
   text-align: center;
 }
 
+input{
+  width: 50%;
+  margin: 30px;
+  font-size: 15px;
+}
+
+button{
+  font-size: 15px;
+  margin: 20px;
+}
+
 .squares{
   display: inline-block;
   margin: 50px;
@@ -11,3 +22,5 @@ html{
   width: 100px;
   border: 5px solid black;
 }
+
+
