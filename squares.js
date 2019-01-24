@@ -9,6 +9,7 @@ function generateDom(colorsArr) {
   const squaresDiv = document.getElementById("squaresList");
   colorsArr.forEach(color => {
     const square = document.createElement('div');
+    square.id = color;
     square.style.backgroundColor = color;
     square.style.height = '100px'
     square.style.width = '100px';
@@ -16,4 +17,14 @@ function generateDom(colorsArr) {
   });
 
   const commandsList = document.getElementById('commands');
+  colorsArr.forEach(color =>{
+    const button = document.createElement('button');
+    button.id = `${color}Button`
+    button.addEventListener('click', function(){
+      const square = document.getElementById(color);
+      square.style.display = 'none';
+    })
+    button.innerHTML = `Toggle ${color}`
+    commandsList.appendChild(button);
+  })
 }
