@@ -13,11 +13,7 @@ function generateDom(colorsArr) {
     const square = document.createElement('div');
     square.className = 'squares';
     square.id = color;
-    square.style.display = 'inline-block';
-    square.style.margin = '50px';
     square.style.backgroundColor = color;
-    square.style.height = '100px';
-    square.style.width = '100px';
     squaresDiv.appendChild(square);
   });
 
